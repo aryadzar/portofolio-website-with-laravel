@@ -2,9 +2,9 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="/admin" class="logo d-flex align-items-center">
-        <img src=" {{asset('img/sim-apk-logo.png')}}" alt="">
-        <span class="d-none d-lg-block">SIM-APK </span>
+      <a href="/dashboard" class="logo d-flex align-items-center">
+        <img src="https://lh3.googleusercontent.com/a/ACg8ocKnPYBAbU_bQvslv9amtw9NoFguyfqxUTSkT7Q_eftmfYSZd7CX=s288-c-no" alt="">
+        <span class="d-none d-lg-block">Dashboard</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->

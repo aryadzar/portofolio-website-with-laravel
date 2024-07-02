@@ -9,7 +9,7 @@
 
   <meta name="copyright" content="MACode ID, https://www.macodeid.com/">
 
-  <title>Virtual Folio - Portfolio HTML5 Template</title>
+  <title>Arya Dzaky 's Portfolio</title>
 
   <link rel="shortcut icon" type="image/x-icon" href=" {{asset('../assets/favicon.ico')}}">
 
@@ -34,50 +34,13 @@
 <body class="theme-red">
 
   <!-- Back to top button -->
-  <div class="btn-back_to_top">
-    <span class="ti-arrow-up"></span>
-  </div>
 
-  <!-- Setting button -->
-  <div class="config">
-    <div class="template-config">
-      <!-- Settings -->
-      <div class="d-block">
-        <button class="btn btn-fab btn-sm" id="sideel" title="Settings"><span class="ti-settings"></span></button>
-      </div>
-      <!-- Puschase -->
-      <div class="d-block">
-        <a href="https://macodeid.com/projects/virtual-folio/" class="btn btn-fab btn-sm" title="Get this template" data-toggle="tooltip" data-placement="left"><span class="ti-download"></span></a>
-      </div>
-      <!-- Help -->
-      <div class="d-block">
-        <a href="#" class="btn btn-fab btn-sm" title="Help" data-toggle="tooltip" data-placement="left"><span class="ti-help"></span></a>
-      </div>
-    </div>
-    <div class="set-menu">
-      <p>Select Color</p>
-      <div class="color-bar" data-toggle="selected">
-        <span class="color-item bg-theme-red selected" data-class="theme-red"></span>
-        <span class="color-item bg-theme-blue" data-class="theme-blue"></span>
-        <span class="color-item bg-theme-green" data-class="theme-green"></span>
-        <span class="color-item bg-theme-orange" data-class="theme-orange"></span>
-        <span class="color-item bg-theme-purple" data-class="theme-purple"></span>
-      </div>
-      <select class="custom-select d-block my-2" id="change-page">
-        <option value="">Choose Page</option>
-        <option value="index">Topbar</option>
-        <option value="blog-topbar">Blog (Topbar)</option>
-        <option value="index-2">Minibar</option>
-        <option value="blog-minibar">Blog (Minibar)</option>
-      </select>
-    </div>
-  </div>
 
   <div class="topbar-nav fixed-top">
     <div class="brand">
       <img src="../assets/favicon.ico" alt="" width="30" height="30">
     </div>
-    <h3 class="ml-1">Gram</h3>
+    <h3 class="ml-1">Arya Dzaky</h3>
     <button class="btn-fab toggle-menu mr-3"><span class="ti-menu"></span></button>
   </div>
 
@@ -165,193 +128,67 @@
           </div>
         </div>
       </div> <!-- End profile -->
-      <!-- Skills -->
-      <div class="container mt-5">
-        <h1 class="text-center fg-dark wow fadeInUp">My Skills</h1>
-        <div class="row py-3">
-          <div class="col-md-6">
-            <h4 class="wow fadeInUp">Coding skills</h4>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">JavaScript</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 86%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">86%</div>
-              </div>
-            </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">PHP</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">80%</div>
-              </div>
-            </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">HTML + CSS</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">100%</div>
-              </div>
-            </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">Phyton</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">90%</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <h4 class="wow fadeInUp">Design Skills</h4>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">UI / UX Design</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 92%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">92%</div>
-              </div>
-            </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">Web Design</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 99%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">99%</div>
-              </div>
-            </div>
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">Logo Design</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 79%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">79%</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> <!-- End skills -->
+
       <!-- Resume -->
       <div class="container pt-5">
         <div class="row">
           <div class="col-md-6 wow fadeInRight">
-            <h2 class="fg-dark">Education</h2>
+            <h2 class="fg-dark">Pendidikan</h2>
             <ul class="timeline mt-4 pr-md-5">
-              <li>
-                <div class="title">2010</div>
-                <div class="details">
-                  <h5>Specialize of course</h5>
-                  <small class="fg-theme">University of Study</small>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-                </div>
-              </li>
-              <li>
-                <div class="title">2009</div>
-                <div class="details">
-                  <h5>Specialize of course</h5>
-                  <small class="fg-theme">University of Study</small>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-                </div>
-              </li>
-              <li>
-                <div class="title">2008</div>
-                <div class="details">
-                  <h5>Specialize of course</h5>
-                  <small class="fg-theme">University of Study</small>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-                </div>
-              </li>
+                @foreach ($data_pendidikan as $data)
+                <li>
+                  <div class="title">{{ $data->tahun}}</div>
+                  <div class="details">
+                    <h5>{{ $data->jurusan}}</h5>
+                    <small class="fg-theme">{{ $data->nama_sekolah}}</small>
+                    {!!  $data->deskripsi !!}
+                  </div>
+                </li>
+                @endforeach
+
             </ul>
           </div>
           <div class="col-md-6 wow fadeInRight" data-wow-delay="200ms">
-            <h2 class="fg-dark">Experience</h2>
+            <h2 class="fg-dark">Pengalaman</h2>
             <ul class="timeline mt-4 pr-md-5">
-              <li>
-                <div class="title">2017 - Current</div>
-                <div class="details">
-                  <h5>Specialize of course</h5>
-                  <small class="fg-theme">University of Study</small>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-                </div>
-              </li>
-              <li>
-                <div class="title">2014</div>
-                <div class="details">
-                  <h5>Specialize of course</h5>
-                  <small class="fg-theme">University of Study</small>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-                </div>
-              </li>
-              <li>
-                <div class="title">2011</div>
-                <div class="details">
-                  <h5>Specialize of course</h5>
-                  <small class="fg-theme">University of Study</small>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-                </div>
-              </li>
+                @foreach ($data_pengalaman as $data)
+                <li>
+                  <div class="title">{{ $data->tahun}}</div>
+                  <div class="details">
+                    <h5>{{ $data->pengalaman}}</h5>
+                    <small class="fg-theme">{{ $data->nama_sekolah}}</small>
+                    {!!  $data->deskripsi !!}
+                  </div>
+                </li>
+                @endforeach
             </ul>
           </div>
         </div>
       </div> <!-- End resume -->
     </div> <!-- End page about -->
 
-    <!-- Page Service -->
-    <div class="vg-page page-service" id="services">
-      <h1 class="text-center wow fadeInUp">Services</h1>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-4 wow fadeInUp">
-            <div class="card card-body">
-              <div class="iconic">
-                <span class="ti-layout"></span>
-              </div>
-              <h4 class="fg-theme">Web Design</h4>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-              <a href="#" class="btn btn-theme btn-rounded">Read More</a>
+
+<!-- Page Service -->
+<!-- Page Service -->
+<div class="vg-page page-service" id="services">
+    <h1 class="text-center wow fadeInUp">Services</h1>
+    <div class="container">
+      <div class="row">
+        @foreach ($services as $data)
+        <div class="col-md-6 col-lg-4 wow fadeInUp">
+          <div class="card card-body">
+            <div class="iconic mb-1">
+              {!! $data->logo !!}
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4 wow fadeInUp">
-            <div class="card card-body">
-              <div class="iconic">
-                <span class="ti-announcement"></span>
-              </div>
-              <h4 class="fg-theme">SEO</h4>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-              <a href="#" class="btn btn-theme btn-rounded">Read More</a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 wow fadeInUp">
-            <div class="card card-body">
-              <div class="iconic">
-                <span class="ti-desktop"></span>
-              </div>
-              <h4 class="fg-theme">Web Development</h4>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-              <a href="#" class="btn btn-theme btn-rounded">Read More</a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 wow fadeInUp">
-            <div class="card card-body">
-              <div class="iconic">
-                <span class="ti-layout"></span>
-              </div>
-              <h4 class="fg-theme">Web Design</h4>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-              <a href="#" class="btn btn-theme btn-rounded">Read More</a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 wow fadeInUp">
-            <div class="card card-body">
-              <div class="iconic">
-                <span class="ti-announcement"></span>
-              </div>
-              <h4 class="fg-theme">SEO</h4>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-              <a href="#" class="btn btn-theme btn-rounded">Read More</a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 wow fadeInUp">
-            <div class="card card-body">
-              <div class="iconic">
-                <span class="ti-desktop"></span>
-              </div>
-              <h4 class="fg-theme">Web Development</h4>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-              <a href="#" class="btn btn-theme btn-rounded">Read More</a>
-            </div>
+            <h4 class="fg-theme">{{ $data->judul }}</h4>
+            {!! ($data->deskripsi_singkat) !!}
           </div>
         </div>
+        @endforeach
       </div>
-    </div> <!-- End page services -->
+    </div>
+  </div>
+
 
     <!-- Testimonials -->
     <div class="vg-page p-0" id="testimonial">
@@ -589,7 +426,7 @@
             </form>
           </div>
           <div class="col-12">
-            <p class="text-center mb-0 mt-4">Copyright &copy;2020. All right reserved </p>
+            <p class="text-center mb-0 mt-4">Copyright &copy;2020 aryadzar.my.id. All right reserved </p>
           </div>
         </div>
       </div>
@@ -623,5 +460,28 @@
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
 
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const buttons = document.querySelectorAll('.read-more');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', function () {
+      const cardBody = this.closest('.card-body');
+      const shortDescription = cardBody.querySelector('.short-description');
+      const fullDescription = cardBody.querySelector('.full-description');
+
+      if (fullDescription.style.display === 'none') {
+        fullDescription.style.display = 'block';
+        shortDescription.style.display = 'none';
+        this.textContent = 'Read Less';
+      } else {
+        fullDescription.style.display = 'none';
+        shortDescription.style.display = 'block';
+        this.textContent = 'Read More';
+      }
+    });
+  });
+});
+  </script>
 </body>
 </html>

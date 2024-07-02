@@ -13,6 +13,21 @@
                 <span>Edit Halaman Depan</span>
             </a>
         </li><!-- End Dashboard Nav -->
+        <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('edit_ex') ? 'active' : 'collapsed' }}" href="{{ route('edit_ex') }}">
+                <i class="bi bi-backpack2"></i>                <span>Edit Education Experience</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+        <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('edit_services') ? 'active' : 'collapsed' }}" href="{{ route('edit_services') }}">
+                <i class="bi bi-menu-up"></i>              <span>Edit Services</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+        <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('edit_services') ? 'active' : 'collapsed' }}" href="{{ route('edit_services') }}">
+                <i class="bi bi-chat-text"></i>          <span>Edit Testimonials</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
 
     </ul>
 </aside><!-- End Sidebar-->

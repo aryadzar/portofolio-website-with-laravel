@@ -14,7 +14,7 @@
       <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+          <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
@@ -37,24 +37,27 @@
             <div class="card">
                     <div class="card-body">
                     <h5 class="card-title">Preview Asset</h5>
-                    <div class="row mb-3">
-                        <label for="inputText" class="col-sm-2 col-form-label">Gambar Halaman Awal</label>
-                        <div class="col-sm-10">
-                            <img src="{{asset('data/'.$data->foto_home)}}" alt="">
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                          <label for="inputText" class="col-sm-2 col-form-label">Foto Profile</label>
-                          <div class="col-sm-10">
-                              <img src="{{asset('data/'.$data->foto_profile)}}" height="100px" width="100px" alt="">
+                    <div class="table-responsive">
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Gambar Halaman Awal</label>
+                            <div class="col-sm-10">
+                                <img src="{{asset('data/'.$data->foto_home)}}" alt="">
                             </div>
-                        </div>
-                      <div class="row mb-3">
-                          <label for="inputText" class="col-sm-2 col-form-label">CV (Curiculum Vitae)</label>
-                          <div class="col-sm-10">
-                              <a href="{{asset('data/'.$data->cv)}}" target="blank"  alt="">Lihat PDF</a>
+                          </div>
+                          <div class="row mb-3">
+                              <label for="inputText" class="col-sm-2 col-form-label">Foto Profile</label>
+                              <div class="col-sm-10">
+                                  <img src="{{asset('data/'.$data->foto_profile)}}" height="100px" width="100px" alt="">
+                                </div>
                             </div>
-                        </div>
+                          <div class="row mb-3">
+                              <label for="inputText" class="col-sm-2 col-form-label">CV (Curiculum Vitae)</label>
+                              <div class="col-sm-10">
+                                  <a href="{{asset('data/'.$data->cv)}}" target="blank"  alt="">Lihat PDF</a>
+                                </div>
+                            </div>
+
+                    </div>
                     </div>
                 </div>
             </div>
