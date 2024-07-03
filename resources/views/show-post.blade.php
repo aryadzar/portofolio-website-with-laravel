@@ -9,7 +9,7 @@
 
   <meta name="copyright" content="MACode ID, https://www.macodeid.com/">
 
-  <title>Arya Dzaky 's Portfolio</title>
+  <title>{{$data->judul}}</title>
 
   <link rel="shortcut icon" type="image/x-icon" href=" {{asset('../assets/favicon.ico')}}">
 

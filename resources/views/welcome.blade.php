@@ -268,7 +268,9 @@
         <div class="row py-5">
           <div class="col-lg-7 wow zoomIn">
             <div class="vg-maps">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.220568102044!2d105.24162151183266!3d-5.3833104538092815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40dac0b8d151e3%3A0xe833385ddd262c1a!2sTaman%20Perumahan%20Palapa%20Indah!5e0!3m2!1sen!2sid!4v1720022163212!5m2!1sen!2sid" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="table-responsive">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.220568102044!2d105.24162151183266!3d-5.3833104538092815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40dac0b8d151e3%3A0xe833385ddd262c1a!2sTaman%20Perumahan%20Palapa%20Indah!5e0!3m2!1sen!2sid!4v1720022163212!5m2!1sen!2sid" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
           </div>
           <div class="col-lg-5">
