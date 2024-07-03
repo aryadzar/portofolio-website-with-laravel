@@ -59,7 +59,6 @@ class DashboardController extends Controller
 
             if(file_exists("data/".$halamanDepan->foto_home)){
                 Storage::delete("data/".$halamanDepan->foto_home);
-                dd('berhasil delete');
             }
 
             $unique_name = time(). '-'. uniqid() .'-'. $file_foto_home->getClientOriginalName(); // Update the database field with the new file path
