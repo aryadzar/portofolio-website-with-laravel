@@ -36,6 +36,7 @@
 <script>
   tinymce.init({
     selector: '.tinymce-editor',
+    height : 600,
     plugins: 'anchor autolink code charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
     setup: function (editor) {

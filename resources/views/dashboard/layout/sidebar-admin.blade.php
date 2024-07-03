@@ -33,6 +33,16 @@
                 <i class="bi bi-newspaper"></i>         <span>Edit Portofolio</span>
             </a>
         </li><!-- End Dashboard Nav -->
+        <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('show_posts') ? 'active' : 'collapsed' }}" href="{{ route('show_posts') }}">
+                <i class="bi bi-file-post-fill"></i>        <span>Edit posts</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+        <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('show_contact') ? 'active' : 'collapsed' }}" href="{{ route('show_contact') }}">
+                <i class="bi bi-mailbox-flag"></i>     <span>View Contact</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
 
     </ul>
 </aside><!-- End Sidebar-->

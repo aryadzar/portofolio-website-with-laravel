@@ -1,15 +1,21 @@
 <?php
 
+use App\Models\Post;
+use App\Models\Contact;
 use App\Models\Service;
 use App\Models\Testimoni;
 use App\Models\Pendidikan;
 use App\Models\Pengalaman;
 use App\Models\HalamanDepan;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\DashboardController;
+use Illuminate\Http\Request;
 use App\Models\back_image_testi;
 use App\Models\KontenPortofolio;
+use Illuminate\Support\Facades\Route;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
+
+
 
 Route::get('/', function () {
 
@@ -21,15 +27,63 @@ Route::get('/', function () {
     $image_testi = back_image_testi::first();
     $portofolio = KontenPortofolio::with('jenis')->get();
     $kategori_jenis = $portofolio->pluck('jenis')->unique('nama_class');
-    // dd($portofolio);
+    $postingan = Post::latest()->take(3)->get();
+
     return view('welcome', compact('hal_depan', 'data_pendidikan', 'data_pengalaman', 'services', 'testimoni', 'image_testi'
-                    , 'portofolio', "kategori_jenis"));
+                    , 'portofolio', "kategori_jenis", "postingan"));
 
 })->name('welcome');
+
+Route::post('/send-contact', function(Request $request){
+    $request->validate([
+    'name' => 'required',
+    'email' => 'required',
+    'subject' => 'required',
+    'message' => 'required'
+    ]);
+
+    $data = Contact::create($request->all());
+
+    $data->save();
+
+    Alert::success('Sukses', 'Pesan Berhasil Dikirim');
+
+    return redirect()->route('welcome');
+
+
+})->name('send_contact');
+
+Route::get('/show-post/{id}', function($id){
+    $data = Post::find($id);
+
+    return view('show-post', compact('data'));
+})->name('post_detail');
+
+Route::get('/show-all-posts', function(){
+    $data = Post::latest()->get();
+
+    return view('show-all-posts', compact('data'));
+
+
+})->name('all_posts');
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/login', [LoginController::class, 'view'])->name('hal_login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
+
+
+
+
 
 
 Route::group(['middleware' => 'auth'], function(){
@@ -68,4 +122,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::delete('/dashboard/edit-portofolio/delete-kategori/{id}', [DashboardController::class, 'delete_kategori_portofolio'])->name('delete_kategori_portofolio');
     Route::delete('/dashboard/edit-portofolio/delete-konten/{id}', [DashboardController::class, 'delete_konten_portofolio'])->name('delete_konten_portofolio');
 
+    Route::get('/dashboard/edit-posts', [DashboardController::class, 'show_posts'])->name('show_posts');;
+    Route::get('/dashboard/edit-posts/tambah-post', [DashboardController::class, 'tambah_post'])->name('tambah_post');;
+    Route::post('/dashboard/edit-posts/tambah-post', [DashboardController::class, 'upload_post'])->name('upload_post');;
+    Route::get('/dashboard/edit-posts/show-detail-post/{id}', [DashboardController::class, 'show_detail_post'])->name('show_detail_post');;
+    Route::put('/dashboard/edit-posts/edit-detail-post/{id}', [DashboardController::class, 'edit_detail_post'])->name('edit_detail_post');;
+    Route::delete('/dashboard/edit-posts/delete-post/{id}', [DashboardController::class, 'delete_post'])->name('delete_post');
+
+    Route::get('/dashboard/get-contact', [DashboardController::class, 'show_contact'])->name('show_contact');;
 });

@@ -231,9 +231,6 @@
           </div>
           @endforeach
         </div>
-        <div class="text-center wow fadeInUp">
-          <a href="javascript:void(0)" class="btn btn-theme">Load More</a>
-        </div>
       </div>
     </div> <!-- End Portfolio page -->
 
@@ -242,44 +239,23 @@
       <h1 class="text-center fg-dark wow fadeInUp">Latest Post</h1>
       <div class="container">
         <div class="row post-grid">
-          <div class="col-md-6 col-lg-4 wow fadeInUp">
-            <div class="card">
-              <div class="img-place">
-                <img src="../assets/img/work/work-9.jpg" alt="">
-              </div>
-              <div class="caption">
-                <a href="javascript:void(0)" class="post-category">Technology</a>
-                <a href="#" class="post-title">Invision design forward fund</a>
-                <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 wow fadeInUp">
-            <div class="card">
-              <div class="img-place">
-                <img src="../assets/img/work/work-6.jpg" alt="">
-              </div>
-              <div class="caption">
-                <a href="javascript:void(0)" class="post-category">Business</a>
-                <a href="#" class="post-title">Announcing a plan for small teams</a>
-                <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
+            @foreach ($postingan as $post)
+            <div class="col-md-6 col-lg-4 wow fadeInUp">
+              <div class="card">
+                <div class="img-place">
+                  <img src="{{asset('data/'.$post->image)}}" alt="">
+                </div>
+                <div class="caption">
+                  <a href="{{route('post_detail', $post->id)}}" class="post-category">{{$post->kategori}}</a>
+                  <a href="{{route('post_detail', $post->id)}}" class="post-title">{{$post->judul}}</a>
+                  <span class="post-date"><span class="sr-only">Published on</span> {{$post->created_at}}</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4 wow fadeInUp">
-            <div class="card">
-              <div class="img-place">
-                <img src="../assets/img/work/work-1.jpg" alt="">
-              </div>
-              <div class="caption">
-                <a href="javascript:void(0)" class="post-category">Design</a>
-                <a href="#" class="post-title">5 basic tips for illustrating</a>
-                <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
-              </div>
-            </div>
-          </div>
+
+            @endforeach
           <div class="col-12 text-center py-3 wow fadeInUp">
-            <a href="blog-minibar.html" class="btn btn-theme">See All Post</a>
+            <a href="{{route('all_posts')}}" class="btn btn-theme">See All Post</a>
           </div>
         </div>
       </div>
@@ -292,23 +268,24 @@
         <div class="row py-5">
           <div class="col-lg-7 wow zoomIn">
             <div class="vg-maps">
-              <div id="google-maps" style="width: 100%; height: 100%;"></div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.220568102044!2d105.24162151183266!3d-5.3833104538092815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40dac0b8d151e3%3A0xe833385ddd262c1a!2sTaman%20Perumahan%20Palapa%20Indah!5e0!3m2!1sen!2sid!4v1720022163212!5m2!1sen!2sid" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
           <div class="col-lg-5">
-            <form class="vg-contact-form">
+            <form action="{{route('send_contact')}}" method="POST" class="vg-contact-form">
+                @csrf
               <div class="form-row">
                 <div class="col-12 wow fadeInUp">
-                  <input class="form-control" type="text" name="Name" placeholder="Your Name">
+                  <input class="form-control" type="text" name="name" placeholder="Your Name">
                 </div>
                 <div class="col-6 wow fadeInUp">
-                  <input class="form-control" type="text" name="Email" placeholder="Email Address">
+                  <input class="form-control" type="text" name="email" placeholder="Email Address">
                 </div>
                 <div class="col-6 wow fadeInUp">
-                  <input class="form-control" type="text" name="Subject" placeholder="Subject">
+                  <input class="form-control" type="text" name="subject" placeholder="Subject">
                 </div>
                 <div class="col-12 wow fadeInUp">
-                  <textarea class="form-control" name="Message" rows="6" placeholder="Enter message here.."></textarea>
+                  <textarea class="form-control" name="message" rows="6" placeholder="Enter message here.."></textarea>
                 </div>
                 <button type="submit" class="btn btn-theme mt-3 wow fadeInUp ml-1">Send Message</button>
               </div>
@@ -320,14 +297,14 @@
 
     <!-- Footer -->
     <div class="vg-footer">
-      <h1 class="text-center">Virtual Folio</h1>
+      <h1 class="text-center">Arya's Portofolio</h1>
       <div class="container">
         <div class="row">
           <div class="col-lg-4 py-3">
             <div class="footer-info">
               <p>Where to find me</p>
               <hr class="divider">
-              <p class="fs-large fg-white">1600 Amphitheatre Parkway Mountain View, California 94043 US</p>
+              <p class="fs-large fg-white">Jalur dua Univeristas Lampung, Jalan Prof. Dr Jl. Prof. Dr. Ir. Sumantri Brojonegoro No.1, Kota Bandar Lampung, Lampung 35141</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 py-3">
@@ -335,37 +312,22 @@
               <p>Follow me</p>
               <hr class="divider">
               <ul class="list-unstyled">
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Youtube</a></li>
+                <li><a href="https://www.instagram.com/aryadzar/">Instagram</a></li>
+                <li><a href="https://www.facebook.com/dzaky.arenanto/?locale=hi_IN">Facebook</a></li>
               </ul>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3 py-3">
+          <div class="col-md-6 col-lg-5 py-3">
             <div class="float-lg-right">
               <p>Contact me</p>
               <hr class="divider">
               <ul class="list-unstyled">
-                <li>info@virtual.com</li>
-                <li>+8890234</li>
-                <li>+813023</li>
+                <li>aryadzaky8494@gmail.com</li>
+                <li>+6282186796121</li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="row justify-content-center mt-3">
-          <div class="col-12 mb-3">
-            <h3 class="fw-normal text-center">Subscribe</h3>
-          </div>
-          <div class="col-lg-6">
-            <form class="mb-3">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Email address">
-                <input type="submit" class="btn btn-theme no-shadow" value="Subscribe">
-              </div>
-            </form>
-          </div>
           <div class="col-12">
             <p class="text-center mb-0 mt-4">Copyright &copy;2020 aryadzar.my.id. All right reserved </p>
           </div>
@@ -399,8 +361,6 @@
 
   <script src="{{asset('../assets/js/minibar-virtual.js')}}"></script>
 
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
-
   <script>
 document.addEventListener('DOMContentLoaded', function () {
   const buttons = document.querySelectorAll('.read-more');
@@ -424,5 +384,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
   </script>
+
+@include('sweetalert::alert')
 </body>
 </html>

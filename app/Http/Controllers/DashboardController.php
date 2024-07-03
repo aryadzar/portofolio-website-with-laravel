@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\back_image_testi;
+use App\Models\Post;
+use App\Models\Contact;
 use App\Models\Service;
+use App\Models\Testimoni;
 use App\Models\Pendidikan;
 use App\Models\Pengalaman;
 use App\Models\HalamanDepan;
-use App\Models\JenisPortofolio;
-use App\Models\KontenPortofolio;
-use App\Models\Testimoni;
 use Illuminate\Http\Request;
+use App\Models\JenisPortofolio;
+use App\Models\back_image_testi;
+use App\Models\KontenPortofolio;
 use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
@@ -399,5 +401,85 @@ class DashboardController extends Controller
 
         return redirect()->route('edit_portofolio')->with('success', "Konten Portofolio Berhasil Dihapus");
 
+    }
+
+    public function show_posts(){
+        $data = Post::all();
+
+        return view('dashboard.edit-posts', compact('data'));
+    }
+
+    public function tambah_post(){
+        return view('dashboard.tambah-post');
+    }
+
+    public function upload_post(Request $request){
+
+        $request->validate([
+            'image' => 'required|image|max:5048',
+            'judul' => 'required',
+            'kategori' => 'required',
+            'isi' => 'required'
+        ]);
+
+        $data = Post::create($request->all());
+
+        if($request->hasFile('image')){
+            $data_image = $request->file('image');
+            $unique_name = time(). '-'. uniqid() .'-'. $data_image->getClientOriginalName(); // Update the database field with the new file path
+            $data_image->move('data/', $unique_name);
+            $data->image = $unique_name;
+        }
+
+        $data->save();
+
+        return redirect()->route('show_posts')->with('success', "Postingan terbaru sudah ditambahkan");
+    }
+
+    public function show_detail_post($id){
+        $data = Post::find($id);
+
+        return view('dashboard.show-detail-post', compact('data'));
+    }
+
+    public function edit_detail_post(Request $request, $id){
+        $request->validate([
+            'image' => 'image|max:5048',
+            'judul' => 'required',
+            'kategori' => 'required',
+            'isi' => 'required'
+        ]);
+        $data = Post::find($id);
+
+        if($request->hasFile('image')){
+            $data_image = $request->file('image');
+            $unique_name = time(). '-'. uniqid() .'-'. $data_image->getClientOriginalName(); // Update the database field with the new file path
+            $data_image->move('data/', $unique_name);
+            $data->image = $unique_name;
+        }
+
+        $data->judul = $request->judul;
+        $data->kategori = $request->kategori;
+        $data->isi = $request->isi;
+
+        $data->save();
+
+        return redirect()->route('show_posts')->with('success', "Postingan terbaru sudah diupdate");
+
+    }
+
+    public function delete_post($id){
+        $data = Post::find($id);
+
+        $data->delete();
+
+        return redirect()->route('show_posts')->with('success', "Postingan sudah terhapus");
+
+    }
+
+    public function show_contact(){
+        $data = Contact::latest()->get();
+
+        return view('dashboard.get-contact', compact('data'));
     }
 }
