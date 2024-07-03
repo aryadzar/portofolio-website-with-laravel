@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\back_image_testi;
 use App\Models\Service;
 use App\Models\Pendidikan;
 use App\Models\Pengalaman;
 use App\Models\HalamanDepan;
+use App\Models\JenisPortofolio;
+use App\Models\KontenPortofolio;
+use App\Models\Testimoni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -227,6 +231,173 @@ class DashboardController extends Controller
     }
 
     public function edit_testimoni(){
-        
+        $data = Testimoni::all();
+        $back_image_testi = back_image_testi::find(1);
+
+        return view('dashboard.edit-testimoni', compact('data', 'back_image_testi'));
+    }
+
+    public function tambah_testimoni(Request $request){
+        $request->validate([
+            "nama" => 'required',
+            "testimoni" => "required"
+
+        ]);
+
+        $data = Testimoni::create($request->all());
+
+        $data->save();
+
+        return redirect()->route('edit_testimoni')->with('success', "Testimoni Berhasil Ditambah");
+
+    }
+
+    public function edit_gambar_testimoni(Request $request){
+        $request->validate([
+            'image' => 'required|image|max:5048', // Nullable jika tidak wajib, image dan batasan ukuran
+
+        ]);
+
+        $data = back_image_testi::find(1);
+
+        $data_image = $request->file('image');
+        $unique_name = time(). '-'. uniqid() .'-'. $data_image->getClientOriginalName(); // Update the database field with the new file path
+        $data_image->move('data/', $unique_name);
+        $data->image = $unique_name;
+
+        $data->save();
+
+        return redirect()->route('edit_testimoni')->with('success', "Gambar Berhasil Disimpan");
+
+
+    }
+
+    public function show_detail_testimoni($id){
+        $data = Testimoni::find($id);
+
+        return view('dashboard.show-detail-testimoni', compact('data'));
+    }
+
+    public function edit_detail_testimoni(Request $request, $id){
+        $request->validate([
+            "nama" => 'required',
+            "testimoni" => "required"
+
+        ]);
+        $data = Testimoni::find($id);
+
+        $data->update($request->all());
+
+        return redirect()->route('edit_testimoni')->with('success', "Testimoni Berhasil Diedit");
+    }
+
+
+    public function delete_testimoni($id){
+        $data = Testimoni::find($id);
+
+        $data->delete();
+
+        return redirect()->route('edit_testimoni')->with('success', "Testimoni Berhasil Dihapus");
+
+    }
+
+    public function edit_portofolio(){
+        $data_jenis = JenisPortofolio::all();
+        $data_konten = KontenPortofolio::all();
+
+        return view ('dashboard.edit-portofolio', compact('data_jenis', 'data_konten'));
+    }
+
+    public function tambah_kategori_portofolio(Request $request){
+        $request->validate([
+            'nama_kategori'=> 'required',
+            'nama_class' => 'required'
+        ]);
+
+        $data = JenisPortofolio::create($request->all());
+
+        $data->save();
+
+        return redirect()->route('edit_portofolio')->with('success', "Jenis Portofolio Berhasil Ditambah");
+    }
+
+    public function tambah_konten_portofolio(Request $request){
+        $request->validate([
+            'id_jenis' => 'required',
+            "image" => 'image|required|max:5028',
+            'judul' => 'required',
+            'deskripsi' => 'required'
+        ]);
+
+        $data = KontenPortofolio::create($request->all());
+
+        if($request->hasFile('image')){
+            $data_image = $request->file('image');
+            $unique_name = time(). '-'. uniqid() .'-'. $data_image->getClientOriginalName(); // Update the database field with the new file path
+            $data_image->move('data/', $unique_name);
+            $data->image = $unique_name;
+        }
+        $data->save();
+        return redirect()->route('edit_portofolio')->with('success', "Konten Portofolio Berhasil Ditambah");
+
+    }
+
+    public function edit_detail_kategori_portofolio(Request $request, $id){
+        $request->validate([
+            'nama_kategori'=> 'required',
+            'nama_class' => 'required'
+        ]);
+
+        $data = JenisPortofolio::find($id);
+
+        $data->update($request->all());
+
+        return redirect()->route('edit_portofolio')->with('success', "Jenis Portofolio Berhasil Diedit");
+
+    }
+
+    public function delete_kategori_portofolio($id){
+        $data = JenisPortofolio::find($id);
+
+        $data->delete();
+
+        return redirect()->route('edit_portofolio')->with('success', "Jenis Portofolio Berhasil Dihapus");
+    }
+
+    public function edit_detail_konten_portofolio(Request $request, $id){
+        $request->validate([
+            'id_jenis' => 'required',
+            "image" => 'image|max:5028',
+            'judul' => 'required',
+            'deskripsi' => 'required'
+        ]);
+
+        $data = KontenPortofolio::find($id);
+
+        if($request->hasFile('image')){
+            $data_image = $request->file('image');
+            $unique_name = time(). '-'. uniqid() .'-'. $data_image->getClientOriginalName(); // Update the database field with the new file path
+            $data_image->move('data/', $unique_name);
+            $data->image = $unique_name;
+        }
+
+        // Update the other fields
+        $data->id_jenis = $request->input('id_jenis');
+        $data->judul = $request->input('judul');
+        $data->deskripsi = $request->input('deskripsi');
+
+        $data->save(); // Save the updated model
+
+        return redirect()->route('edit_portofolio')->with('success', "Konten Portofolio Berhasil Diedit");
+
+    }
+
+    public function delete_konten_portofolio($id){
+        $data = KontenPortofolio::find($id);
+
+        $data->delete();
+
+        return redirect()->route('edit_portofolio')->with('success', "Konten Portofolio Berhasil Dihapus");
+
     }
 }

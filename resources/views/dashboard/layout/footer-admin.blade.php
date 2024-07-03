@@ -31,8 +31,7 @@
     })
 });
   </script>
-<script src="https://cdn.tiny.cloud/1/bpre0vtr0gqwweshjyr1ojonw5apuwcl5f4gkndatgj7tshi/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.2.0/tinymce.min.js" integrity="sha512-E2dqytT185qVoAL0sfqr39BLHEBQtmZze59ChMjYi4vRUW6BzIBLZAqErdQAAAJX8bkFq2kQgQL9Lbpm8Uuw0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
 <script>
   tinymce.init({

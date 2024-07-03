@@ -9,6 +9,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <link rel="shortcut icon" href="https://lh3.googleusercontent.com/a/ACg8ocKnPYBAbU_bQvslv9amtw9NoFguyfqxUTSkT7Q_eftmfYSZd7CX=s288-c-no" type="image/x-icon">
   <!-- Favicons -->
    <link href="{{asset('dashboard_asset/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 

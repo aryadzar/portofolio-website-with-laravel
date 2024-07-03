@@ -24,8 +24,13 @@
             </a>
         </li><!-- End Dashboard Nav -->
         <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('edit_services') ? 'active' : 'collapsed' }}" href="{{ route('edit_services') }}">
+            <a class="nav-link {{ request()->routeIs('edit_testimoni') ? 'active' : 'collapsed' }}" href="{{ route('edit_testimoni') }}">
                 <i class="bi bi-chat-text"></i>          <span>Edit Testimonials</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+        <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('edit_portofolio') ? 'active' : 'collapsed' }}" href="{{ route('edit_portofolio') }}">
+                <i class="bi bi-newspaper"></i>         <span>Edit Portofolio</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
