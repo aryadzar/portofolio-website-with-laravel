@@ -19,3 +19,21 @@ https://youtube.com/playlist?list=PLoBGtBK7uqyVodNxVy0wznVSItEPlTFdH&si=jOycDCk2
 - lalu dashboard menggunakan NiceAdmin : https://bootstrapmade.com/demo/templates/NiceAdmin/index.html
 
 - Demo websitenya : https://aryadzar.my.id 
+
+- Bukti crud tiap sesinya
+
+
+https://github.com/aryadzar/portofolio-website-with-laravel/assets/112409058/2ea3e8a7-6bba-4db0-bd91-eed03e2f85df
+
+
+https://github.com/aryadzar/portofolio-website-with-laravel/assets/112409058/82a2b168-4f50-43a7-a633-28f90004f3e1
+
+
+https://github.com/aryadzar/portofolio-website-with-laravel/assets/112409058/ff02d149-8286-4010-99bc-fb62341bf0f6
+
+
+
+https://github.com/aryadzar/portofolio-website-with-laravel/assets/112409058/9bc1b38a-4a7c-49c4-bf32-4b8850afae3c
+
+
+- Project kelar 😍🙏
