@@ -32,6 +32,16 @@
   <link rel="stylesheet" type="text/css" href="{{asset('../assets/css/minibar.virtual.css')}}">
 
   <style>
+    .content img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .content iframe {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/9;
+    }
     .background-image-wrapper {
     position: absolute;
     width: 100%;
