@@ -72,32 +72,61 @@
     </div>
   </div>
 
-  <!-- Main Wrapper -->
   <div class="vg-main-wrapper">
     <div class="vg-page page-blog">
       <div class="container">
         <div class="row widget-grid">
-        <div class="container">
-            <div class="row post-grid">
-                @foreach ($data as $data)
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                        <div class="img-place">
-                            <img src="{{ asset('data/' . $data->image) }}" alt="">
-                        </div>
-                        <div class="caption">
-                            <a href="{{route('post_detail', $data->id)}}" class="post-category">{{$data->kategori}}</a>
-                            <a href="{{route('post_detail', $data->id)}}" class="post-title">{{$data->judul}}</a>
-                            <span class="post-date"><span class="sr-only">Published on</span> {{$data->created_at}}</span>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+          <div class="col-lg-8">
+            <div class="input-group py-2">
+              <input type="text" class="form-control" placeholder="Search" id="search-input" value="{{ request('search') }}">
             </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="d-flex py-2 mx-n2">
+              <div class="input-group px-2">
+                <select class="vg-select" id="category-select">
+                  <option value="">Category</option>
+                  @foreach($categories as $category)
+                    <option value="{{ $category->kategori }}" {{ request('category') == $category->kategori ? 'selected' : '' }}>
+                      {{ $category->kategori }}
+                    </option>
+                  @endforeach
+                </select>
+              </div>
+              <div class="input-group px-2">
+                <select class="vg-select" id="sort-select">
+                  <option value="">Sort By</option>
+                  <option value="desc" {{ request('sort') == 'desc' ? 'selected' : '' }}>Newest</option>
+                  <option value="asc" {{ request('sort') == 'asc' ? 'selected' : '' }}>Oldest</option>
+                </select>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="row post-grid">
+          @foreach($data as $post)
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card">
+                <div class="img-place">
+                  <img src="{{ asset('data/' . $post->image) }}" alt="" class="card-img-top">
+                </div>
+                <div class="caption card-body">
+                  <a href="javascript:void(0)" class="post-category">{{ $post->kategori }}</a>
+                  <a href="{{ route('post_detail', $post->id) }}" class="post-title">{{ $post->judul }}</a>
+                  <span class="post-date"><span class="sr-only">Published on</span> {{ $post->created_at }}</span>
+                </div>
+              </div>
+            </div>
+          @endforeach
+        </div>
+        <div class="col-12 py-3">
+          <ul class="pagination justify-content-center">
+            <li class="page-item">{{ $data->appends(request()->input())->links("vendor.pagination.bootstrap-5") }}</li>
+          </ul>
         </div>
       </div>
     </div>
+</div>
 
 
        <!-- Footer -->
@@ -166,6 +195,19 @@
   <script src="../assets/js/minibar-virtual.js"></script>
 
   <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script> -->
+  <script>
+    $(document).ready(function() {
+        $('#search-input, #category-select, #sort-select').on('change', function() {
+            var query = {
+                search: $('#search-input').val(),
+                category: $('#category-select').val(),
+                sort: $('#sort-select').val()
+            };
 
+            var url = '{{ route("all_posts") }}' + '?' + $.param(query);
+            window.location.href = url;
+        });
+    });
+</script>
 </body>
 </html>

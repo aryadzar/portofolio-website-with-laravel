@@ -30,10 +30,16 @@
   <link rel="stylesheet" type="text/css" href="{{asset('../assets/css/virtual.css')}}">
 
   <link rel="stylesheet" type="text/css" href="{{asset('../assets/css/minibar.virtual.css')}}">
+
+
 </head>
 <body class="theme-red">
 
   <!-- Back to top button -->
+
+
+      <!-- JavaScript -->
+      <audio id="background-audio" src="瞬き (Instrumental).mp3" loop></audio>
 
 
   <div class="topbar-nav fixed-top">
@@ -89,10 +95,39 @@
             <span class="caption">Contact</span>
           </a>
         </li>
+        <li class="menu-item">
+            <button id="toggle-audio" class="btn btn-primary">Start Audio</button>
+            <span class="caption">Music</span>
+        </li>
       </ul>
     </div>
   </div>
+  <script>
+    const audioElement = document.getElementById('background-audio');
+    const toggleButton = document.getElementById('toggle-audio');
 
+    toggleButton.addEventListener('click', function() {
+        if (audioElement.paused) {
+            audioElement.play().catch(error => {
+                console.log('Audio playback failed:', error);
+            });
+            toggleButton.textContent = 'Pause Audio';
+        } else {
+            audioElement.pause();
+            toggleButton.textContent = 'Play Audio';
+        }
+    });
+
+    // Optional: Start playing audio automatically with user interaction
+    document.addEventListener('click', function() {
+        if (audioElement.paused) {
+            audioElement.play().catch(error => {
+                console.log('Audio playback failed:', error);
+            });
+            toggleButton.textContent = 'Pause Audio';
+        }
+    }, { once: true });
+</script>
   <div class="vg-main-wrapper">
     <div class="vg-page page-home" id="home" style="background-image: url('{{asset('data/'.$hal_depan->foto_home)}}');">
       <div class="caption wow zoomInUp">

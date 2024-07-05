@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -24,5 +25,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('routeis', function($route){
             return Route::currentRouteNamed($route);
         });
+
+        
     }
 }

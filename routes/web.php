@@ -59,12 +59,28 @@ Route::get('/show-post/{id}', function($id){
     return view('show-post', compact('data'));
 })->name('post_detail');
 
-Route::get('/show-all-posts', function(){
-    $data = Post::latest()->get();
+Route::get('/show-all-posts', function(Request $request){
 
-    return view('show-all-posts', compact('data'));
+    $query = Post::query();
 
+    if ($request->has('search') && $request->search != '') {
+        $query->where('judul', 'like', '%' . $request->search . '%');
+    }
 
+    if ($request->has('category') && $request->category != '') {
+        $query->where('kategori', $request->category);
+    }
+
+    if ($request->has('sort') && $request->sort != '') {
+        $query->orderBy('created_at', $request->sort);
+    } else {
+        $query->orderBy('created_at', 'desc');
+    }
+
+    $data = $query->paginate(5);
+    $categories = Post::select('kategori')->distinct()->get();
+
+    return view('show-all-posts', compact('data', 'categories'));
 })->name('all_posts');
 
 
